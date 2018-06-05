@@ -5,7 +5,7 @@
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <body style='margin : 0px; overflow: hidden;'>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-        <a-scene embedded arjs='debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+        <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
 
         <a-assets>
             <!-- <a-asset-item id="table-obj" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/table.obj"></a-asset-item>
@@ -30,6 +30,7 @@
         <a-marker type='barcode' value='6'>
             <a-entity
                 obj-model="obj: #trice-obj; mtl: #trice-mtl"
+                position='0 -1 0'
                 scale='2 2 2'
                 >
             </a-entity>
