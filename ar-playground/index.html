@@ -10,10 +10,12 @@
         <a-assets>
             <!-- <a-asset-item id="table-obj" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/table.obj"></a-asset-item>
             <a-asset-item id="table-mtl" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/table.mtl"></a-asset-item> -->
+            <a-asset-item id="trice-obj" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/trice-obj/triceratops.obj"></a-asset-item>
+            <a-asset-item id="trice-mtl" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/trice-obj/triceratops.mtl"></a-asset-item>
             <a-asset-item id="animated" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
         </a-assets>
 
-        <a-marker type='barcode' value='7'>
+        <!-- <a-marker type='barcode' value='7'>
             <a-box position='0 0.5 0' color="red"></a-box>
         </a-marker>
 
@@ -23,7 +25,11 @@
                 scale="4 4 4"
                 animation-mixer="loop:repeat">
             </a-gltf-model>
-        </a-marker>
+        </a-marker> -->
+
+        <a-entity
+            obj-model="obj: #trice-obj; mtl: #trice-mtl">
+        </a-entity>
 
         <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
         <a-entity camera></a-entity>
