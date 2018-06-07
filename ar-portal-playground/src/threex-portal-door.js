@@ -1,7 +1,7 @@
 var THREEx = THREEx || {}
 
 THREEx.Portal360 = function(videoImageURL, doorWidth, doorHeight){
-	
+
 	var doorCenter = new THREE.Group
 	doorCenter.position.y = doorHeight/2
 	this.object3d = doorCenter
@@ -23,13 +23,13 @@ THREEx.Portal360 = function(videoImageURL, doorWidth, doorHeight){
 
 		var texture360 = new THREE.VideoTexture( video );
 		texture360.minFilter = THREE.LinearFilter;
-		texture360.format = THREE.RGBFormat;	
-		texture360.flipY = false;		
+		texture360.format = THREE.RGBFormat;
+		texture360.flipY = false;
 	}else{
 		var texture360 = new THREE.TextureLoader().load(videoImageURL)
 		texture360.minFilter = THREE.NearestFilter;
 		texture360.format = THREE.RGBFormat;
-		texture360.flipY = false;		
+		texture360.flipY = false;
 	}
 
 	//////////////////////////////////////////////////////////////////////////////
@@ -66,11 +66,11 @@ THREEx.Portal360.buildTransparentMaterial = function(){
 	// material.color.set('black')
 	// material.opacity   = 0;
 	// material.blending  = THREE.NoBlending;
-	
+
 	// cache the material
 	THREEx.Portal360.buildTransparentMaterial.material = material
-	
-	return material		
+
+	return material
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -86,17 +86,17 @@ THREEx.Portal360.buildSquareCache = function(){
 	mesh.position.x =  geometry.parameters.width/2 + 0.5
 	mesh.position.y = -geometry.parameters.height/2 + 0.5
 	container.add(mesh)
-	
+
 	var mesh = new THREE.Mesh( geometry, material);
 	mesh.position.x = -geometry.parameters.width/2 + 0.5
 	mesh.position.y = -geometry.parameters.height/2 - 0.5
 	container.add(mesh)
-	
+
 	var mesh = new THREE.Mesh( geometry, material);
 	mesh.position.x = -geometry.parameters.width/2 - 0.5
 	mesh.position.y =  geometry.parameters.height/2 - 0.5
 	container.add(mesh)
-	
+
 	var mesh = new THREE.Mesh( geometry, material);
 	mesh.position.x = +geometry.parameters.width/2 - 0.5
 	mesh.position.y =  geometry.parameters.height/2 + 0.5
@@ -148,7 +148,7 @@ THREEx.Portal360.prototype._buildInsideMesh	= function(texture360, doorWidth, do
 	sphere360Mesh.position.z = -0.1
 	sphere360Mesh.rotation.y = Math.PI
 	doorInsideCenter.add(sphere360Mesh)
-	
+
 	return doorInsideCenter
 }
 
@@ -192,7 +192,7 @@ THREEx.Portal360.prototype._buildOutsideMesh = function(texture360, doorWidth, d
 	var sphere360Mesh = new THREE.Mesh( geometry, material );
 	sphere360Mesh.position.z = -0.1
 	doorOutsideCenter.add(sphere360Mesh)
-	
+
 	return doorOutsideCenter
 }
 
@@ -232,7 +232,7 @@ THREEx.Portal360.prototype._buildRectangularFrame = function(radius, width, heig
 	container.add(meshBottom)
 
 	return container
-}	
+}
 
 //////////////////////////////////////////////////////////////////////////////
 //		update function
