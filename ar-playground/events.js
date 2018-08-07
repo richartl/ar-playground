@@ -9,7 +9,8 @@ AFRAME.registerComponent('markerhandler', {
         const animatedMarker = document.querySelector("#animated-marker");
         animatedMarker.addEventListener('click', function(){
             if (animatedMarker.object3D.visible == true) {
-                alert('CLICK!');
+                const entity = document.querySelector('#animated-model');
+                entity.scale = '' + +(entity.scale) + 1;
             }
         });
 }});
