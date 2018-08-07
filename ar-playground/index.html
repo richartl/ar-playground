@@ -1,5 +1,8 @@
 <!doctype HTML>
 <html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
     <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
@@ -8,10 +11,6 @@
         <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
 
         <a-assets>
-            <!-- <a-asset-item id="table-obj" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/table.obj"></a-asset-item>
-            <a-asset-item id="table-mtl" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/table.mtl"></a-asset-item> -->
-            <a-asset-item id="trice-obj" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/Model/Model.obj"></a-asset-item>
-            <a-asset-item id="trice-mtl" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/Model/Model.mtl"></a-asset-item>
             <a-asset-item id="animated" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
         </a-assets>
 
@@ -25,15 +24,7 @@
                 scale="4 4 4"
                 animation-mixer="loop:repeat">
             </a-gltf-model>
-        </a-marker> -->
-
-        <!-- <a-marker type='barcode' value='6'>
-            <a-entity
-                obj-model="obj: #trice-obj; mtl: #trice-mtl"
-
-                >
-            </a-entity>
-        </a-marker> -->
+        </a-marker>
 
         <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
         <a-entity camera></a-entity>
