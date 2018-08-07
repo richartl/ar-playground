@@ -2,20 +2,14 @@ AFRAME.registerComponent('markerhandler', {
 
     init: function() {
         // Set up the tick throttling. Will check if marker is active every 500ms
-        this.addedListener = false;
-        this.tick = AFRAME.utils.throttleTick(this.tick, 500, this);
-    },
-
-    tick: function(t, dt) {
+        // this.onClickCallback = function(){
+        //     alert('CLICK!');
+        // };
+        // this.tick = AFRAME.utils.throttleTick(this.tick, 500, this);
         const animatedMarker = document.querySelector("#animated-marker");
-        if (!this.addedListener && animatedMarker.object3D.visible == true) {
-                animatedMarker.addEventListener('click', () => {
-                    alert('CLICK!');
-                });
-                this.addedListener = true;
+        animatedMarker.addEventListener('click', function(){
+            if (animatedMarker.object3D.visible == true) {
+                alert('CLICK!');
             }
-        }
-});
-
-
-
+        });
+}});
