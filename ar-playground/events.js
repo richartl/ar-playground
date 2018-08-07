@@ -8,20 +8,23 @@ AFRAME.registerComponent('markerhandler', {
   tick: function(t, dt) {
     const animatedMarker = document.querySelector("#animated-marker");
     var animatedObject = document.querySelector('#animated-model');
-    if (animatedMarker.object3D.visible == true || animatedObject.object3D.visible == true) {
-        console.log('s', 'AAA', t, dt,);
+    if (animatedObject.object3D.visible == true) {
         // var animatedObject = document.querySelector('#animated-model');
-        animatedObject.addEventListener('click', function() {
-            alert("clicconeee")
+        animatedObject.addEventListener('click', function(ev) {
+            ev.stopPropagation()
+            alert("clicconeee object click")
         });
         animatedObject.addEventListener('touchend', function() {
-            alert("clicconeee")
+            ev.stopPropagation()
+            alert("clicconeee object touchend")
         });
         animatedMarker.addEventListener('click', function() {
-            alert("clicconeee")
+            ev.stopPropagation()
+            alert("clicconeee marker click")
         });
         animatedMarker.addEventListener('touchend', function() {
-            alert("clicconeee")
+            ev.stopPropagation()
+            alert("clicconeee marker touchend")
         });
     }
 }});
