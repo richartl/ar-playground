@@ -7,7 +7,7 @@ AFRAME.registerComponent('markerhandler', {
 
   tick: function(t, dt) {
     const animatedMarker = document.querySelector("#animated-marker");
-    console.log('animated??', animatedMarker);
+    console.log('animated??', animatedMarker.object3D);
     if (animatedMarker.object3D.visible == true) {
         // MARKER IS PRESENT
         //alert("MARKER IS PRESENT")
