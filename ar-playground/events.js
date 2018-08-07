@@ -7,11 +7,12 @@ AFRAME.registerComponent('markerhandler', {
 
   tick: function(t, dt) {
     const animatedMarker = document.querySelector("#animated-marker");
-    if (animatedMarker.object3D.visible == true) {
+    var animatedObject = document.querySelector('#animated-model');
+    if (animatedMarker.object3D.visible == true || animatedObject.object3D.visible == true) {
         // MARKER IS PRESENT
         alert("MARKER IS PRESENT")
         console.log('s', 'AAA', t, dt,);
-        var animatedObject = document.querySelector('#animated-model');
+        // var animatedObject = document.querySelector('#animated-model');
         console.log('AAA', t, dt, animatedObject);
         animatedObject.addEventListener('click', function() {
             alert("clicconeee")
