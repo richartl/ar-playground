@@ -14,5 +14,14 @@ AFRAME.registerComponent('markerhandler', {
         animatedObject.addEventListener('click', function() {
             alert("clicconeee")
         });
+        animatedObject.addEventListener('touchend', function() {
+            alert("clicconeee")
+        });
+        animatedMarker.addEventListener('click', function() {
+            alert("clicconeee")
+        });
+        animatedMarker.addEventListener('touchend', function() {
+            alert("clicconeee")
+        });
     }
 }});
