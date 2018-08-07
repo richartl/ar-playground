@@ -9,8 +9,9 @@ AFRAME.registerComponent('markerhandler', {
     if (document.querySelector("#animated-marker").object3D.visible == true) {
         // MARKER IS PRESENT
         //alert("MARKER IS PRESENT")
-
-  	    var animatedObject = document.querySelector('#animated-model');
+        console.log('s', 'AAA', t, dt,);
+        var animatedObject = document.querySelector('#animated-model');
+        console.log('AAA', t, dt, animatedObject);
         animatedObject.addEventListener('click', function() {
             alert("clicconeee")
         });
