@@ -11,11 +11,8 @@ AFRAME.registerComponent('markerhandler', {
     if (animatedObject.object3D.visible == true || animatedMarker.object3D.visible == true) {
         animatedMarker.addEventListener('click', function(ev) {
             ev.stopPropagation()
-            alert("clicconeee marker click")
-        });
-        animatedMarker.addEventListener('touchend', function(ev) {
-            ev.stopPropagation()
-            alert("clicconeee marker touchend")
+            ev.preventDefault()
+            console.log(ev)
         });
     }
 }});
