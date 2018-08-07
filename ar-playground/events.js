@@ -8,16 +8,7 @@ AFRAME.registerComponent('markerhandler', {
   tick: function(t, dt) {
     const animatedMarker = document.querySelector("#animated-marker");
     var animatedObject = document.querySelector('#animated-model');
-    if (animatedObject.object3D.visible == true) {
-        // var animatedObject = document.querySelector('#animated-model');
-        animatedObject.addEventListener('click', function(ev) {
-            ev.stopPropagation()
-            alert("clicconeee object click")
-        });
-        animatedObject.addEventListener('touchend', function(ev) {
-            ev.stopPropagation()
-            alert("clicconeee object touchend")
-        });
+    if (animatedObject.object3D.visible == true && animatedMarker.object3D.visible == true) {
         animatedMarker.addEventListener('click', function(ev) {
             ev.stopPropagation()
             alert("clicconeee marker click")
