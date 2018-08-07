@@ -8,7 +8,7 @@ AFRAME.registerComponent('markerhandler', {
 
     tick: function(t, dt) {
         const animatedMarker = document.querySelector("#animated-marker");
-        if (animatedMarker.object3D.visible == true && !this.addedListener) {
+        if (!this.addedListener && animatedMarker.object3D.visible == true) {
                 animatedMarker.addEventListener('click', () => {
                     alert('CLICK!');
                 });
