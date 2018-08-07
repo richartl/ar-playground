@@ -1,18 +1,28 @@
+// modify scale of 3D model
+const modifyScale = function(delta) {
+    const entity = document.querySelector('#animated-model');
+    const scale = entity.getAttribute('scale');
+    Object.keys(scale).forEach((key) => scale[key] = scale[key] + delta);
+    entity.setAttribute('scale', scale);
+}
+
 AFRAME.registerComponent('markerhandler', {
 
     init: function() {
-        // Set up the tick throttling. Will check if marker is active every 500ms
-        // this.onClickCallback = function(){
-        //     alert('CLICK!');
-        // };
-        // this.tick = AFRAME.utils.throttleTick(this.tick, 500, this);
         const animatedMarker = document.querySelector("#animated-marker");
+
+        // one click, we make our model grow
         animatedMarker.addEventListener('click', function(){
             if (animatedMarker.object3D.visible == true) {
-                const entity = document.querySelector('#animated-model');
-                const scale = entity.getAttribute('scale');
-                Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
-                entity.setAttribute('scale', scale);
+                modifyScale(1);
             }
         });
+
+        // doubleclick, we keep him tiny
+        animatedMarker.addEventListener('dblclick', function(){
+            if (animatedMarker.object3D.visible == true) {
+                modifyScale(-1);
+            }
+        });
+
 }});
