@@ -1,13 +1,3 @@
-var lastClicked = 0;
-
-function onClickCheck(callback) {
-    var timeNow = Date.now();
-    if ((timeNow - lastClicked) < 15000) {
-        callback();
-    }
-    lastClicked = timeNow;
-}
-
 AFRAME.registerComponent('markerhandler', {
 
     init: function() {
@@ -18,9 +8,15 @@ AFRAME.registerComponent('markerhandler', {
     tick: function(t, dt) {
         const animatedMarker = document.querySelector("#animated-marker");
         if (animatedMarker.object3D.visible == true) {
-            animatedMarker.addEventListener('click', function(ev) {
+
+            const handler = function(){
                 onClickCheck(() => alert('CLICK!'));
-            });
+            };
+
+            if (!this.handler) {
+                animatedMarker.addEventListener('click', );
+                this.handler = handler;
+            }
         }
 }});
 
