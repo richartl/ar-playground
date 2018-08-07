@@ -14,15 +14,15 @@ AFRAME.registerComponent('markerhandler', {
             ev.stopPropagation()
             alert("clicconeee object click")
         });
-        animatedObject.addEventListener('touchend', function() {
+        animatedObject.addEventListener('touchend', function(ev) {
             ev.stopPropagation()
             alert("clicconeee object touchend")
         });
-        animatedMarker.addEventListener('click', function() {
+        animatedMarker.addEventListener('click', function(ev) {
             ev.stopPropagation()
             alert("clicconeee marker click")
         });
-        animatedMarker.addEventListener('touchend', function() {
+        animatedMarker.addEventListener('touchend', function(ev) {
             ev.stopPropagation()
             alert("clicconeee marker touchend")
         });
