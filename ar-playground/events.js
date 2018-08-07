@@ -11,6 +11,8 @@ AFRAME.registerComponent('markerhandler', {
         //alert("MARKER IS PRESENT")
 
   	    var animatedObject = document.querySelector('#animated-model');
-        animatedObject.addEventListener('click', function () { console.log("object01 clickable in AR") });
+        animatedObject.addEventListener('click', function() {
+            alert("clicconeee")
+        });
     }
 }});
