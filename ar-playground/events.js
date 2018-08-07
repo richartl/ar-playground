@@ -1,7 +1,7 @@
 var lastClicked = 0;
 
 function onClickCheck(callback) {
-    var timeNow = (new Date()).getTime();
+    var timeNow = Date.now();
     if (timeNow > (lastClicked + 500)) {
         callback();
     }
