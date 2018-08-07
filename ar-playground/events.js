@@ -1,4 +1,6 @@
-function onClickCheck(lastClicked, callback) {
+var lastClicked = 0;
+
+function onClickCheck(callback) {
     var timeNow = (new Date()).getTime();
     if (timeNow > (lastClicked + 500)) {
         callback();
@@ -14,11 +16,10 @@ AFRAME.registerComponent('markerhandler', {
     },
 
     tick: function(t, dt) {
-        var lastClicked = 0;
         const animatedMarker = document.querySelector("#animated-marker");
         if (animatedMarker.object3D.visible == true) {
             animatedMarker.addEventListener('click', function(ev) {
-                onClickCheck(lastClicked, () => alert('CLICK!'));
+                onClickCheck(() => alert('CLICK!'));
             });
         }
 }});
