@@ -1,11 +1,3 @@
-// modify scale of 3D model
-const modifyScale = function(delta) {
-    const entity = document.querySelector('#animated-model');
-    const scale = entity.getAttribute('scale');
-    Object.keys(scale).forEach((key) => scale[key] = scale[key] + delta);
-    entity.setAttribute('scale', scale);
-}
-
 AFRAME.registerComponent('markerhandler', {
 
     init: function() {
@@ -14,15 +6,11 @@ AFRAME.registerComponent('markerhandler', {
         // one click, we make our model grow
         animatedMarker.addEventListener('click', function(){
             if (animatedMarker.object3D.visible == true) {
-                modifyScale(1);
+                console.log('qua')
+                const entity = document.querySelector('#animated-model');
+                const scale = entity.getAttribute('scale');
+                Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
+                entity.setAttribute('scale', scale);
             }
         });
-
-        // doubleclick, we keep him tiny
-        animatedMarker.addEventListener('dblclick', function(){
-            if (animatedMarker.object3D.visible == true) {
-                modifyScale(-1);
-            }
-        });
-
 }});
