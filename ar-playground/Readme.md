@@ -2,8 +2,9 @@ AR.js playground
 
 For full detailed articles about AR.js and markers please take a look at 
 
-* https://medium.com/chialab-open-source/ar-js-the-simpliest-way-to-get-cross-browser-ar-on-the-web-8f670dd45462
-* https://medium.com/chialab-open-source/how-to-deliver-ar-on-the-web-only-with-a-qr-code-e24b7b61f8cb
+* Introduction to AR.js: https://medium.com/chialab-open-source/ar-js-the-simpliest-way-to-get-cross-browser-ar-on-the-web-8f670dd45462
+* Deliver AR.js content only with a QR-Code: https://medium.com/chialab-open-source/how-to-deliver-ar-on-the-web-only-with-a-qr-code-e24b7b61f8cb
+* Handle click events with AR.js: https://medium.com/chialab-open-source/how-to-handle-click-events-on-ar-js-58fcacb77c4
 
 ### Other useful links
 
