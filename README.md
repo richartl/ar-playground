@@ -2,6 +2,6 @@
 
 A playground for Web AR technologies.
 
-- AR.js
+- AR.js (`ar-playground/`)
 
 //TODO Add More
