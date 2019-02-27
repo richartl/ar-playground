@@ -1,34 +1,115 @@
-<!doctype HTML>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    </head>
-    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
-    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
-    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/events.js"></script>
-    <body style='margin : 0px; overflow: hidden;'>
-        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <style>
+      .a-enter-vr-button {
+        display: none;
+      }
+    </style>
+  </head>
+  <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+  <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+  <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+  <script src="./events.js"></script>
+  <body style="margin : 0px; overflow: hidden;">
+    <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+    <a-scene
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 4x4;"
+    >
+      <!-- <a-assets>
+        <a-asset-item
+          id="animated-asset"
+          src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"
+        ></a-asset-item>
+      </a-assets> -->
 
-        <a-assets>
-            <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
-        </a-assets>
+      <a-assets>
+        <a-asset
+          id="chicharrones"
+          src="./models/julimoy-chicharron-de-cerdo-32g.jpg"
+        ></a-asset>
+        <a-asset
+          id="rossa"
+          src="./models/sanpellegrino-rossa-330ml.jpg"
+        ></a-asset>
+        <a-asset id="marinela" src="./models/latter_marinela.jpg"></a-asset>
+        <a-asset id="choc" src="./models/choc-melos-6-unidades.jpg"></a-asset>
+        <a-asset id="cheetos" src="./models/cheetos.jpeg"></a-asset>
+      </a-assets>
 
-        <a-marker type='barcode' value='7'>
-            <a-box position='0 0.5 0' color="red"></a-box>
-        </a-marker>
+      <a-marker
+        markerhandler
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse"
+        id="marker-cheetos"
+        type="barcode"
+        value="7"
+      >
+        <a-image
+          id="image-cheetos"
+          width="1"
+          height="1"
+          src="#cheetos"
+          rotation="-90 0 0"
+        ></a-image>
+        <a-image
+          id="image-cheetos"
+          width="1"
+          height="1"
+          src="#marinela"
+          rotation="-90 0 0"
+          position="0 0 -1"
+        ></a-image>
+      </a-marker>
 
-        <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" id="animated-marker" type='barcode' value='6'>
-            <a-entity
-                id="animated-model"
-                gltf-model="#animated-asset"
-                scale="2">
-            </a-entity>
-        </a-marker>
+      <a-marker
+        markerhandler
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse"
+        id="marker-chicharrones"
+        type="barcode"
+        value="6"
+      >
+        <a-image
+          id="image-chicharrones"
+          width="1"
+          height="1"
+          src="#chicharrones"
+          rotation="-90 0 0"
+        ></a-image>
+      </a-marker>
 
-        <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
-        <a-entity camera></a-entity>
-        </a-scene>
-    </body>
+      <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+      <a-entity camera></a-entity>
+    </a-scene>
+    <div
+      id="interactive-cheetos"
+      style="position: absolute; z-index: 99; width: 50%; height: 100%; top: 0; display: none; flex-direction: column; justify-content: center; align-items: center; left: 0; right: 0; margin: 0 auto;"
+    >
+      <button onclick="onClosePressed('interactive-cheetos')">X</button>
+      <img
+        style="width: 100%; ; max-height: 300px"
+        src="./models/cheetos.jpeg"
+      />
+      <button onclick="onBuyPressed('interactive-cheetos')">Comprar</button>
+    </div>
+    <div
+      id="interactive-chicharrones"
+      style="position: absolute; z-index: 99; width: 50%; height: 100%; top: 0; display: none; flex-direction: column; justify-content: center; align-items: center; left: 0; right: 0; margin: 0 auto;"
+    >
+      <button onclick="onClosePressed('interactive-chicharrones')">X</button>
+      <img
+        style="width: 100%; max-height: 300px"
+        src="./models/julimoy-chicharron-de-cerdo-32g.jpg"
+      />
+      <button onclick="onBuyPressed('interactive-chicharrones')">
+        Comprar
+      </button>
+    </div>
+  </body>
 </html>
