@@ -31,7 +31,23 @@ function onClosePressed(id) {
 
 function onBuyPressed(id) {
   console.log("onBuyPressed", id);
-  fetch("https://jsonplaceholder.typicode.com/todos/1")
+  // fetch("https://jsonplaceholder.typicode.com/todos/1")
+  //   .then(response => response.json())
+  //   .then(json => console.log(json));
+  fetch("http://165.227.18.165:3000/api/v4/product_servers/1/deals", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      Authorization: "Token token=f185f12c3ca4e88ab6de07c8cd1b8eb8",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      user_code: id === "interactive-cheetos" ? 51 : 34,
+      sale_type_code: 2,
+      origin: "web",
+      any_product: false
+    })
+  })
     .then(response => response.json())
     .then(json => console.log(json));
 }
