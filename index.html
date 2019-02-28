@@ -20,6 +20,7 @@
     <a-scene
       embedded
       arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 4x4;"
+      id="scene"
     >
       <!-- <a-assets>
         <a-asset-item
@@ -29,7 +30,7 @@
       </a-assets> -->
 
       <a-assets>
-        <a-asset
+        <!-- <a-asset
           id="chicharrones"
           src="./models/julimoy-chicharron-de-cerdo-32g.jpg"
         ></a-asset>
@@ -38,17 +39,17 @@
           src="./models/sanpellegrino-rossa-330ml.jpg"
         ></a-asset>
         <a-asset id="marinela" src="./models/latter_marinela.jpg"></a-asset>
-        <a-asset id="choc" src="./models/choc-melos-6-unidades.jpg"></a-asset>
-        <a-asset id="cheetos" src="./models/cheetos.jpeg"></a-asset>
+        <a-asset id="choc" src="./models/choc-melos-6-unidades.jpg"></a-asset>-->
+        <!-- <a-asset id="cheetos" src="./models/cheetos.jpeg"></a-asset> -->
       </a-assets>
 
-      <a-marker
+      <!-- <a-marker
         markerhandler
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse"
         id="marker-cheetos"
         type="barcode"
-        value="7"
+        value="99"
       >
         <a-image
           id="image-cheetos"
@@ -57,9 +58,9 @@
           src="#cheetos"
           rotation="-90 0 0"
         ></a-image>
-      </a-marker>
+      </a-marker> -->
 
-      <a-marker
+      <!-- <a-marker
         markerhandler
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse"
@@ -74,7 +75,7 @@
           src="#chicharrones"
           rotation="-90 0 0"
         ></a-image>
-      </a-marker>
+      </a-marker> -->
 
       <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
       <a-entity camera></a-entity>
@@ -90,18 +91,19 @@
       />
       <button onclick="onBuyPressed('interactive-cheetos')">Comprar</button>
     </div>
-    <div
-      id="interactive-chicharrones"
-      style="position: absolute; z-index: 99; width: 50%; height: 100%; top: 0; display: none; flex-direction: column; justify-content: center; align-items: center; left: 0; right: 0; margin: 0 auto;"
-    >
-      <button onclick="onClosePressed('interactive-chicharrones')">X</button>
-      <img
-        style="width: 100%; max-height: 300px"
-        src="./models/julimoy-chicharron-de-cerdo-32g.jpg"
-      />
-      <button onclick="onBuyPressed('interactive-chicharrones')">
-        Comprar
-      </button>
-    </div>
+    <!-- <div
+        id="interactive-chicharrones"
+        style="position: absolute; z-index: 99; width: 50%; height: 100%; top: 0; display: none; flex-direction: column; justify-content: center; align-items: center; left: 0; right: 0; margin: 0 auto;"
+      >
+        <button onclick="onClosePressed('interactive-chicharrones')">X</button>
+        <img
+          style="width: 100%; max-height: 300px"
+          src="./models/julimoy-chicharron-de-cerdo-32g.jpg"
+        />
+        <button onclick="onBuyPressed('interactive-chicharrones')">
+          Comprar
+        </button>
+      </div>
+    </div> -->
   </body>
 </html>
