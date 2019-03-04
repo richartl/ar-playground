@@ -5,6 +5,10 @@
       name="viewport"
       content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
     <style>
       .a-enter-vr-button {
         display: none;
@@ -46,6 +50,45 @@
         padding: 5px 15px;
         text-transform: uppercase;
       }
+      .purchase {
+        position: absolute;
+        z-index: 99;
+        width: 50%;
+        height: 50%;
+        top: 0;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+      p {
+        font-family: "Roboto", sans-serif;
+        background: #fff;
+        text-align: center;
+        border: 2px solid green;
+      }
+      #loading {
+        position: absolute;
+        z-index: 99;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: #fff;
+      }
     </style>
   </head>
   <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
@@ -58,35 +101,10 @@
       arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 4x4;"
     >
       <a-assets>
-        <a-asset id="apple-jacks" src="./products/apple-jacks.png"></a-asset>
         <a-asset id="bargs" src="./products/bargs.png"></a-asset>
-        <a-asset id="cheetos" src="./products/cheetos.png"></a-asset>
         <a-asset id="doritos" src="./products/doritos.png"></a-asset>
-        <a-asset id="fritos" src="./products/fritos.png"></a-asset>
-        <a-asset id="hersheys" src="./products/hersheys.png"></a-asset>
         <a-asset id="lays" src="./products/lays.png"></a-asset>
-        <a-asset id="snyders" src="./products/snyders.png"></a-asset>
-        <a-asset id="sun-chips" src="./products/sun-chips.png"></a-asset>
-        <a-asset id="welchs" src="./products/welchs.png"></a-asset>
       </a-assets>
-
-      <a-marker
-        markerhandler
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse"
-        id="marker-apple-jacks"
-        type="barcode"
-        value="1"
-      >
-        <a-image
-          id="image-apple-jacks"
-          width="3"
-          height="3"
-          src="#apple-jacks"
-          rotation="-90 0 0"
-          position="0 0.5 -1"
-        ></a-image>
-      </a-marker>
 
       <a-marker
         markerhandler
@@ -98,27 +116,9 @@
       >
         <a-image
           id="image-bargs"
-          width="3"
-          height="3"
+          width="2"
+          height="2"
           src="#bargs"
-          rotation="-90 0 0"
-          position="0 0.5 -1"
-        ></a-image>
-      </a-marker>
-
-      <a-marker
-        markerhandler
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse"
-        id="marker-cheetos"
-        type="barcode"
-        value="3"
-      >
-        <a-image
-          id="image-cheetos"
-          width="3"
-          height="3"
-          src="#cheetos"
           rotation="-90 0 0"
           position="0 0.5 -1"
         ></a-image>
@@ -134,45 +134,9 @@
       >
         <a-image
           id="image-doritos"
-          width="3"
-          height="3"
+          width="2"
+          height="2"
           src="#doritos"
-          rotation="-90 0 0"
-          position="0 0.5 -1"
-        ></a-image>
-      </a-marker>
-
-      <a-marker
-        markerhandler
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse"
-        id="marker-fritos"
-        type="barcode"
-        value="5"
-      >
-        <a-image
-          id="image-fritos"
-          width="3"
-          height="3"
-          src="#fritos"
-          rotation="-90 0 0"
-          position="0 0.5 -1"
-        ></a-image>
-      </a-marker>
-
-      <a-marker
-        markerhandler
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse"
-        id="marker-hersheys"
-        type="barcode"
-        value="6"
-      >
-        <a-image
-          id="image-hersheys"
-          width="3"
-          height="3"
-          src="#hersheys"
           rotation="-90 0 0"
           position="0 0.5 -1"
         ></a-image>
@@ -188,63 +152,9 @@
       >
         <a-image
           id="image-lays"
-          width="3"
-          height="3"
+          width="2"
+          height="2"
           src="#lays"
-          rotation="-90 0 0"
-          position="0 0.5 -1"
-        ></a-image>
-      </a-marker>
-
-      <a-marker
-        markerhandler
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse"
-        id="marker-snyders"
-        type="barcode"
-        value="8"
-      >
-        <a-image
-          id="image-snyders"
-          width="3"
-          height="3"
-          src="#snyders"
-          rotation="-90 0 0"
-          position="0 0.5 -1"
-        ></a-image>
-      </a-marker>
-
-      <a-marker
-        markerhandler
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse"
-        id="marker-sun-chips"
-        type="barcode"
-        value="9"
-      >
-        <a-image
-          id="image-sun-chips"
-          width="3"
-          height="3"
-          src="#sun-chips"
-          rotation="-90 0 0"
-          position="0 0.5 -1"
-        ></a-image>
-      </a-marker>
-
-      <a-marker
-        markerhandler
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse"
-        id="marker-welchs"
-        type="barcode"
-        value="10"
-      >
-        <a-image
-          id="image-welchs"
-          width="3"
-          height="3"
-          src="#welchs"
           rotation="-90 0 0"
           position="0 0.5 -1"
         ></a-image>
@@ -252,34 +162,13 @@
 
       <a-entity camera></a-entity>
     </a-scene>
-    <div id="action-apple-jacks" class="interactives">
-      <button
-        class="close-button"
-        onclick="onClosePressed('action-apple-jacks')"
-      >
-        X
-      </button>
-      <img style="height: 300px" src="./products/apple-jacks.png" />
-      <button class="buy-button" onclick="onBuyPressed('action-apple-jacks')">
-        Comprar
-      </button>
-    </div>
     <div id="action-bargs" class="interactives">
       <button class="close-button" onclick="onClosePressed('action-bargs')">
         X
       </button>
       <img style="height: 300px" src="./products/bargs.png" />
       <button class="buy-button" onclick="onBuyPressed('action-bargs')">
-        Comprar
-      </button>
-    </div>
-    <div id="action-cheetos" class="interactives">
-      <button class="close-button" onclick="onClosePressed('action-cheetos')">
-        X
-      </button>
-      <img style="height: 300px" src="./products/cheetos.png" />
-      <button class="buy-button" onclick="onBuyPressed('action-cheetos')">
-        Comprar
+        $10.00 BUY
       </button>
     </div>
     <div id="action-doritos" class="interactives">
@@ -288,25 +177,7 @@
       </button>
       <img style="height: 300px" src="./products/doritos.png" />
       <button class="buy-button" onclick="onBuyPressed('action-doritos')">
-        Comprar
-      </button>
-    </div>
-    <div id="action-fritos" class="interactives">
-      <button class="close-button" onclick="onClosePressed('action-fritos')">
-        X
-      </button>
-      <img style="height: 300px" src="./products/fritos.png" />
-      <button class="buy-button" onclick="onBuyPressed('action-fritos')">
-        Comprar
-      </button>
-    </div>
-    <div id="action-hersheys" class="interactives">
-      <button class="close-button" onclick="onClosePressed('action-hersheys')">
-        X
-      </button>
-      <img style="height: 300px" src="./products/hersheys.png" />
-      <button class="buy-button" onclick="onBuyPressed('action-hersheys')">
-        Comprar
+        $12.00 BUY
       </button>
     </div>
     <div id="action-lays" class="interactives">
@@ -315,35 +186,32 @@
       </button>
       <img style="height: 300px" src="./products/lays.png" />
       <button class="buy-button" onclick="onBuyPressed('action-lays')">
-        Comprar
+        $13.00 BUY
       </button>
     </div>
-    <div id="action-snyders" class="interactives">
-      <button class="close-button" onclick="onClosePressed('action-snyders')">
+    <div id="purchase-bargs" class="purchase">
+      <button class="close-button" onclick="onClosePressed('purchase-bargs')">
         X
       </button>
-      <img style="height: 300px" src="./products/snyders.png" />
-      <button class="buy-button" onclick="onBuyPressed('action-snyders')">
-        Comprar
-      </button>
+      <img style="height: 300px" src="./products/bargs.png" />
+      <p>Purchase completed, please retrieve your product</p>
     </div>
-    <div id="action-sun-chips" class="interactives">
-      <button class="close-button" onclick="onClosePressed('action-sun-chips')">
+    <div id="purchase-doritos" class="purchase">
+      <button class="close-button" onclick="onClosePressed('purchase-doritos')">
         X
       </button>
-      <img style="height: 300px" src="./products/sun-chips.png" />
-      <button class="buy-button" onclick="onBuyPressed('action-sun-chips')">
-        Comprar
-      </button>
+      <img style="height: 300px" src="./products/doritos.png" />
+      <p>Purchase completed, please retrieve your product</p>
     </div>
-    <div id="action-welchs" class="interactives">
-      <button class="close-button" onclick="onClosePressed('action-welchs')">
+    <div id="purchase-lays" class="purchase">
+      <button class="close-button" onclick="onClosePressed('purchase-lays')">
         X
       </button>
-      <img style="height: 300px" src="./products/welchs.png" />
-      <button class="buy-button" onclick="onBuyPressed('action-welchs')">
-        Comprar
-      </button>
+      <img style="height: 300px" src="./products/lays.png" />
+      <p>Purchase completed, please retrieve your product</p>
+    </div>
+    <div id="loading">
+      <img style="height: 100px; width: 400px" src="./connecting.gif" />
     </div>
   </body>
 </html>
